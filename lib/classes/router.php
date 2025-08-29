@@ -192,7 +192,7 @@ class router {
         $this->app->add(di::get(uri_normalisation_middleware::class));
 
         // Add the Error Handling Middleware and configure it to show Moodle Errors for HTML pages.
-        $errormiddleware = $this->app->addErrorMiddleware(true, true, true);
+        $errormiddleware = $this->app->addErrorMiddleware(false, true, true);
         $errorhandler = $errormiddleware->getDefaultErrorHandler();
         $errorhandler->registerErrorRenderer('text/html', routed_error_handler::class);
     }
